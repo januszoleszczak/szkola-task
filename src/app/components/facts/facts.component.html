@@ -5,10 +5,10 @@
   <div class="next-fact">
     <ng-container *ngIf="loading$()">
       <mat-spinner />
-      <p>Poczekaj na nowe kocie ciekawostki...</p>
+      <p>Wait for new cats facts...</p>
     </ng-container>
     <ng-container *ngIf="hasEnded$()">
-      <p>To wszystkie fakty</p>
+      <p>You know all cats facts</p>
     </ng-container>
   </div>
 </cdk-virtual-scroll-viewport>
