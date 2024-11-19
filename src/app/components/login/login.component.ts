@@ -53,7 +53,7 @@ export class LoginComponent {
       const { username, password } = this.form.value;
 
       if (this.authService.login(username, password)) {
-        this.router.navigate(['/cat-facts']);
+        this.router.navigate(['/facts']);
       } else {
         this.errorMessage = 'Invalid credentials!';
       }

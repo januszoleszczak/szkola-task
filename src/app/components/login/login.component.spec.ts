@@ -65,6 +65,6 @@ describe('LoginComponent', () => {
     component.form.setValue({ username: 'test', password: '1234' });
     component.loginFn();
     expect(authService.login).toHaveBeenCalledWith('test', '1234');
-    expect(router.navigate).toHaveBeenCalledWith(['/cat-facts']);
+    expect(router.navigate).toHaveBeenCalledWith(['/facts']);
   });
 });

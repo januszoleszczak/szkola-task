@@ -1,0 +1,18 @@
+<cdk-virtual-scroll-viewport [itemSize]="itemSize" class="viewport">
+  <div *cdkVirtualFor="let fact of facts$()" class="fact">
+    <p class="fact--text">{{fact}}</p>
+  </div>
+  <div class="next-fact">
+    <ng-container *ngIf="loading$()">
+      <mat-spinner />
+      <p>Poczekaj na nowe kocie ciekawostki...</p>
+    </ng-container>
+    <ng-container *ngIf="hasEnded$()">
+      <p>To wszystkie fakty</p>
+    </ng-container>
+  </div>
+</cdk-virtual-scroll-viewport>
+
+<ng-container *ngIf="fetchFact$ | async" />
+
+
