@@ -1,0 +1,29 @@
+<div class="login">
+  <mat-card class="login--form">
+    <span class="login--title">Login</span>
+    <form [formGroup]="form" (ngSubmit)="loginFn()">
+      <mat-form-field class="login--field">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" required aria-label="Username">
+        <mat-error *ngIf="form.get('username')?.invalid && form.get('username')?.touched" class="login--error">
+          Username is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="login--field">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hidePassword() ? 'password' : 'text'" formControlName="password" required
+          aria-label="Password">
+        <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+          <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="login--error">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" class="login--button">Login</button>
+      <p *ngIf="errorMessage" class="login--error">{{ errorMessage }}</p>
+    </form>
+  </mat-card>
+</div>
